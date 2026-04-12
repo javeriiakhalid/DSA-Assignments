@@ -1,0 +1,89 @@
+
+// Name: Javeria Khalid
+// Seat no. EB25210006034
+
+import java.util.*;
+
+public class TaskManager {
+
+    static LinkedList<String> tasks = new LinkedList<>();
+
+    // Show options
+    static void menu() {
+        System.out.println("\n====== OPTIONS ======");
+        System.out.println("1. Remove first task");
+        System.out.println("2. Remove last task");
+        System.out.println("3. Remove task at index");
+        System.out.println("4. Remove task by name");
+        System.out.println("5. Clear all tasks");
+    }
+
+    // Initial data
+    static void loadTasks() {
+        tasks.add("Homework");
+        tasks.add("Shopping");
+        tasks.add("Assignment");
+        tasks.add("Workout");
+        System.out.println("Current Tasks: " + tasks);
+    }
+
+    static void removeStart() {
+        if (!tasks.isEmpty()) {
+            tasks.removeFirst();
+        }
+        System.out.println(tasks);
+    }
+
+    static void removeEnd() {
+        if (!tasks.isEmpty()) {
+            tasks.removeLast();
+        }
+        System.out.println(tasks);
+    }
+
+    static void removeAtIndex() {
+        int index = 1; // different index than original
+        if (index >= 0 && index < tasks.size()) {
+            tasks.remove(index);
+        }
+        System.out.println(tasks);
+    }
+
+    static void removeByName() {
+        tasks.remove("Workout");
+        System.out.println(tasks);
+    }
+
+    static void clearAll() {
+        tasks.clear();
+        System.out.println("All tasks removed: " + tasks);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        loadTasks();
+
+        int option;
+        String again;
+
+        do {
+            menu();
+            System.out.print("Choose an option: ");
+            option = input.nextInt();
+
+            switch (option) {
+                case 1: removeStart(); break;
+                case 2: removeEnd(); break;
+                case 3: removeAtIndex(); break;
+                case 4: removeByName(); break;
+                case 5: clearAll(); break;
+                default: System.out.println("Wrong choice!");
+            }
+
+            System.out.print("Continue? (y/n): ");
+            again = input.next();
+
+        } while (again.equalsIgnoreCase("y"));
+    }
+}
