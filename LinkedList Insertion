@@ -89,7 +89,7 @@ public class Insertion {
                     System.out.println("Invalid entry!");
             }
 
-            System.out.println("Do you want to continue (Y/N): ");
+            System.out.println("Do you want to continue? ");
             cont = sc.next();
 
         } while(cont.equalsIgnoreCase("y"));
