@@ -2,6 +2,8 @@
 // Name: Javeria Khalid
 // Seat no. EB25210006034
 
+import java.util.*;
+
 public class LinkedListDemo {
 
     // Node class
