@@ -1,0 +1,93 @@
+import java.util.Scanner;
+import java.util.LinkedList;
+
+public class Insertion {
+
+    static LinkedList<String> students = new LinkedList<String>();
+
+    public static void displaymenu(){
+        System.out.println("--------MENU---------");
+        System.out.println("1. Insert at beginning");
+        System.out.println("2. Insert at end");
+        System.out.println("3. Insert at specific position");
+        System.out.println("4. Insert after a given name");
+        System.out.println("5. Insert before a given name");
+    }
+
+    public static void LIST(){
+        students.add("Ali");
+        students.add("Sara");
+        students.add("Ahmed");
+        students.add("Zara");
+        System.out.println("Initial List: " + students);
+    }
+
+    public static void ADDFIRST(){
+        students.addFirst("Hassan");   // different name
+        System.out.println(students);
+    }
+
+    public static void ADDLAST(){
+        students.addLast("Ayesha");   // different name
+        System.out.println(students);
+    }
+
+    public static void SPECIFIC_POSITION(){
+        students.add(2, "Usman");     // different name
+        System.out.println(students);
+    }
+
+    public static void AFTERNODE(){
+        int index = students.indexOf("Sara");
+        if(index != -1){
+            students.add(index + 1, "Fatima");   // different name
+        }
+        System.out.println(students);
+    }
+
+    public static void BEFORENODE(){
+        int index = students.indexOf("Zara");
+        if(index != -1){
+            students.add(index, "Hamza");   // different name
+        }
+        System.out.println(students);
+    }
+
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        LIST();
+
+        int choice;
+        String cont;
+
+        do{
+            displaymenu();
+            System.out.println("\nSelect from the menu: ");
+            choice = sc.nextInt();
+
+            switch(choice){
+                case 1:
+                    ADDFIRST();
+                    break;
+                case 2:
+                    ADDLAST();
+                    break;
+                case 3:
+                    SPECIFIC_POSITION();
+                    break;
+                case 4:
+                    AFTERNODE();
+                    break;
+                case 5:
+                    BEFORENODE();
+                    break;
+                default:
+                    System.out.println("Invalid entry!");
+            }
+
+            System.out.println("Do you want to continue (Y/N): ");
+            cont = sc.next();
+
+        } while(cont.equalsIgnoreCase("y"));
+    }
+}
