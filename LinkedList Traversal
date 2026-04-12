@@ -1,0 +1,71 @@
+
+// Name: Javeria Khalid
+// Seat no. EB25210006034
+
+public class LinkedListDemo {
+
+    // Node class
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int d) {
+            data = d;
+        }
+    }
+
+    Node head;
+
+    // Display list
+    void show() {
+        if (head == null) {
+            System.out.println("Empty list");
+            return;
+        }
+        for (Node temp = head; temp != null; temp = temp.next) {
+            System.out.print(temp.data + " -> ");
+        }
+        System.out.println("null");
+    }
+
+    // Search element
+    void find(int value) {
+        int pos = 1;
+        for (Node temp = head; temp != null; temp = temp.next, pos++) {
+            if (temp.data == value) {
+                System.out.println(value + " found at position " + pos);
+                return;
+            }
+        }
+        System.out.println(value + " not found");
+    }
+
+    // Count nodes
+    int size() {
+        int count = 0;
+        for (Node temp = head; temp != null; temp = temp.next) {
+            count++;
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+
+        LinkedListDemo obj = new LinkedListDemo();
+
+        // Creating list
+        obj.head = new Node(2);
+        obj.head.next = new Node(4);
+        obj.head.next.next = new Node(6);
+        obj.head.next.next.next = new Node(8);
+
+        System.out.println("List:");
+        obj.show();
+
+        obj.find(6);
+        obj.find(10);
+
+        System.out.println("Total nodes: " + obj.size());
+
+    }
+}
